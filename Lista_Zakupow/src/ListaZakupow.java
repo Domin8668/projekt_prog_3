@@ -2,6 +2,7 @@ import javax.swing.*;
 
 public class ListaZakupow {
     private JPanel mainPanel;
+    private JButton buttonTestowyButton;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Lista Zakupów");
