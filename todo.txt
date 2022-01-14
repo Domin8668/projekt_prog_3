@@ -1,0 +1,21 @@
+- zegar
+
+- widok menadżera plików wejściowych 
+
+- menu bar główne: pomoc, info, zamknij
+
+- wyjście do pliku i na ekran
+
+- if błąd -> textarea
+
+- wejscie -> textarea, potem przycisk 'dalej' i sprawdza kombinacje (tutaj dajemy loading bar) i pokazujemy wyjscie
+
+- osobna klasa na wczytywanie z pliku
+
+- osobna klasa na wyświetlanie tego co wczytaliśmy
+
+- osobna klasa na obliczanie
+
+- osobna klasa na wyświetlanie tego co obliczyliśmy
+
+- osobna klasa na wypisanie tego co obliczyliśmy do txt wyjście
