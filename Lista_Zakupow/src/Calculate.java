@@ -1,8 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// TODO
+// Dodać zwracanie według indeksów a nie wartości
 class Calculate {
-    public ArrayList<String> result = new ArrayList<>();
+    private final ArrayList<String> result = new ArrayList<>();
+    public ArrayList<String> getResult() {
+        return result;
+    }
+
     void sum_up_recursive(ArrayList<Integer> numbers, int target, ArrayList<Integer> partial) {
         int s = 0;
         for (int x : partial) s += x;

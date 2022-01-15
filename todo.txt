@@ -9,5 +9,4 @@ Główny program:
 - osobna klasa na wypisanie tego co obliczyliśmy do txt wyjście
 
 Dodatki:
-- ekran pomoc i info
 - loading bar

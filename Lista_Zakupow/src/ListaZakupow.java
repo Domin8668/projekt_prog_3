@@ -107,7 +107,7 @@ public class ListaZakupow {
             cl.show(cardPanel, "4"); // Tymczasowo przechodzimy od razu do output, dodać loading bar
             Calculate c = new Calculate();
             c.calculate(input);
-            result = c.result;
+            result = c.getResult();
             for(String s : result) {
                 System.out.println(s);
             }
