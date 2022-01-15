@@ -4,8 +4,14 @@ import java.util.Arrays;
 public class Calculate {
     public static ArrayList<String> calculate(ArrayList<String> input) {
         ArrayList<String> arr = new ArrayList<>();
+        for (String s : input) {
+            String[] lines = s.split("\\s");
+            double budget = 1;
+        }
+
+
         int n = input.size();
-        for (String s : input) { //dla kazdego elemntu listyrobisz
+        for (String s : input) {
             String[] tab = s.split(" "); //ten split jest gogolnie ciulaty, robi ci po spacji i jeszcze masz w tej tablicy ciagle nazwy i te kwoty iwec to zmien
             double[] tablica = new double[tab.length]; // a no i nie wiem jak z "\n w javie bo jest ich w takim pliku od chuja// "
             for (int j = 0; j < tab.length; j++) {
