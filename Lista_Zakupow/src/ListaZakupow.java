@@ -53,9 +53,9 @@ public class ListaZakupow {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-            for(String s: input) {
-                System.out.println(s);
-            }
+//            for(String s: input) {
+//                System.out.println(s);
+//            }
         });
     }
 
