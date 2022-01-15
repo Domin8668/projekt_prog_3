@@ -83,6 +83,7 @@
                     <properties>
                       <background color="-13419967"/>
                       <caretColor color="-1"/>
+                      <disabledTextColor color="-1"/>
                       <dropMode value="USE_SELECTION"/>
                       <editable value="false"/>
                       <enabled value="false"/>
