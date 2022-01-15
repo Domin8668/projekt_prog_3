@@ -28,15 +28,16 @@ public class ListaZakupow {
     private JLabel helpLabel;
     private JButton calculateButton;
     private JScrollPane inputScrollPane;
+    private JTextPane inputTextPanel;
     private JMenuBar menuBar;
     private JPanel menuPanel;
-    private JTextPane inputTextPanel;
+
     private File[] files;
     private ArrayList<String> input;
     private ArrayList<String> result;
-    CardLayout cl = new CardLayout();
 
     public ListaZakupow() {
+        CardLayout cl = new CardLayout();
         cardPanel.setLayout(cl);
         cardPanel.add(menuCard, "1");
         cardPanel.add(inputCard, "2");
@@ -102,7 +103,8 @@ public class ListaZakupow {
                     inputTextPanel.setText(String.valueOf(inputToDisplay));
                 }
             } catch (IOException ex) {
-                ex.printStackTrace();
+                JOptionPane.showMessageDialog(mainPanel, ex.getStackTrace(),
+                        "Błąd krytyczny", JOptionPane.ERROR_MESSAGE);
             }
         });
         calculateButton.addActionListener(e -> {
