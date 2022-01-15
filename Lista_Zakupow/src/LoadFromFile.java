@@ -6,12 +6,6 @@ import java.util.ArrayList;
 
 
 public class LoadFromFile {
-    // TODO
-    // Dokończyć wczytywanie
-    // Tak, musi dostawać tablicę
-    // Więc biorąc to pod uwagę, będzie zwracać Listę stringów
-    // Każdy element listy to zawartość jednego pliku
-    // Obsługę błędów chyba zrobię z poziomu GUI, żeby wyświetlało ostrzeżenie i zamykało program
     public static ArrayList<String> getInput(File[] files) throws IOException{
         ArrayList<String> arr = new ArrayList<>();
         if(files != null) {
@@ -21,7 +15,10 @@ public class LoadFromFile {
             }
         }
         else
-            arr.add("");
+            arr.add(null);
+        for(String s : arr) {
+            System.out.println(s);
+        }
         return arr;
     }
 }
