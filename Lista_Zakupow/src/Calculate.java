@@ -1,52 +1,49 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Calculate {
-    public static ArrayList<String> calculate(ArrayList<String> input) {
-        ArrayList<String> arr = new ArrayList<>();
-        for (String s : input) {
-            String[] lines = s.split("\\s");
-            double budget = 1;
+class Calculate {
+    public ArrayList<String> result = new ArrayList<>();
+    void sum_up_recursive(ArrayList<Integer> numbers, int target, ArrayList<Integer> partial) {
+        int s = 0;
+        for (int x : partial) s += x;
+        if (s == target)
+            result.add("sum(" + Arrays.toString(partial.toArray()) + ")=" + target);
+        if (s >= target)
+            return;
+        for (int i = 0; i < numbers.size(); i++) {
+            ArrayList<Integer> remaining = new ArrayList<>();
+            int n = numbers.get(i);
+            for (int j = i + 1; j < numbers.size(); j++) remaining.add(numbers.get(j));
+            ArrayList<Integer> partial_rec = new ArrayList<>(partial);
+            partial_rec.add(n);
+            sum_up_recursive(remaining, target, partial_rec);
         }
+    }
 
+    void sum_up(ArrayList<Integer> numbers, int target) {
+        sum_up_recursive(numbers, target, new ArrayList<>());
+    }
 
-        int n = input.size();
+    public void calculate(ArrayList<String> input) {
+        int m;
+        ArrayList<Integer> values;
+        int budget;
+
         for (String s : input) {
-            String[] tab = s.split(" "); //ten split jest gogolnie ciulaty, robi ci po spacji i jeszcze masz w tej tablicy ciagle nazwy i te kwoty iwec to zmien
-            double[] tablica = new double[tab.length]; // a no i nie wiem jak z "\n w javie bo jest ich w takim pliku od chuja// "
-            for (int j = 0; j < tab.length; j++) {
-                tablica[j] = Double.parseDouble(tab[j]);
+            String[] lines = s.split("\\n");
+            m = lines.length;
+            values = new ArrayList<>();
+            budget = (int) (Double.parseDouble(lines[0]) * 100);
+            System.out.println("Budżet: " + budget);
+            for (int i = 1; i < m; i++) {
+                int value = (int) (Double.parseDouble(lines[i].split("\\s")[0]) * 100);
+                values.add(value);
+                System.out.println("Wartość: " + value);
             }
-            double suma = tablica[0];
-            tablica = Arrays.copyOfRange(tablica, 1, tablica.length); //jakbys usunal tylko stringi masz tu uber chujowy sposob na usuniecie pierwszego elelmntu z tablicy ktorym była suma
-            isSubsetSum(tablica, tablica.length, tablica[0]);
+            int size = result.size();
+            sum_up(values, budget);
+            if(size == result.size())
+                result.add("Brak kombinacji.");
         }
-        arr.add("1 2 4");
-        arr.add("1");
-        arr.add("1");
-        arr.add("1");
-        return arr;
     }
-
-    static boolean isSubsetSum(double[] set,
-                               int n, double sum)
-    {
-        // Base Cases
-        if (sum == 0)
-            return true;
-        if (n == 0 && sum != 0)
-            return false;
-
-        // If last element is greater than
-        // sum, then ignore it
-        if (set[n - 1] > sum)
-            return isSubsetSum(set, n - 1, sum);
-
-        /* else, check if sum can be obtained
-        by any of the following
-            (a) including the last element
-            (b) excluding the last element */
-        return isSubsetSum(set, n - 1, sum) || isSubsetSum(set, n - 1, sum - set[n - 1]);
-    }
-
 }
