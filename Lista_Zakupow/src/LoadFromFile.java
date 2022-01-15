@@ -12,7 +12,7 @@ public class LoadFromFile {
     // Więc biorąc to pod uwagę, będzie zwracać Listę stringów
     // Każdy element listy to zawartość jednego pliku
     // Obsługę błędów chyba zrobię z poziomu GUI, żeby wyświetlało ostrzeżenie i zamykało program
-    public static ArrayList<String> getInput(File[] files) throws IOException, NullPointerException {
+    public static ArrayList<String> getInput(File[] files) throws IOException{
         ArrayList<String> arr = new ArrayList<>();
         if(files != null) {
             for (File file : files) {
@@ -21,7 +21,7 @@ public class LoadFromFile {
             }
         }
         else
-            arr.add("Tablica była nullem :((((");
+            arr.add("");
         return arr;
     }
 }
