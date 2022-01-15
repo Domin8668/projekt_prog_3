@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ListaZakupow">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="2123" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-13419967"/>
+      <foreground color="-1"/>
+    </properties>
     <border type="none"/>
     <children>
       <grid id="c044e" binding="cardPanel" layout-manager="CardLayout" hgap="0" vgap="0">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -20,7 +23,9 @@
             <constraints>
               <card name="Card1"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-13419967"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="61024" class="javax.swing.JButton" binding="chooseFilesButton">
@@ -63,7 +68,9 @@
                 <children>
                   <component id="c6ec" class="javax.swing.JTextArea" binding="inputTextArea">
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <background color="-13419967"/>
+                    </properties>
                   </component>
                 </children>
               </scrollpane>
@@ -74,7 +81,9 @@
             <constraints>
               <card name="Card3"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-13419967"/>
+            </properties>
             <border type="none"/>
             <children/>
           </grid>
@@ -83,28 +92,26 @@
             <constraints>
               <card name="Card4"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-13419967"/>
+            </properties>
             <border type="none"/>
             <children/>
           </grid>
-          <grid id="1e36b" binding="infoCard" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="1e36b" binding="infoCard" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <card name="Card5"/>
             </constraints>
             <properties>
               <background color="-13419967"/>
+              <foreground color="-1"/>
             </properties>
             <border type="none"/>
             <children>
-              <hspacer id="fb56b">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </hspacer>
               <component id="19e17" class="javax.swing.JLabel" binding="infoLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
@@ -115,24 +122,20 @@
               </component>
             </children>
           </grid>
-          <grid id="3edad" binding="helpCard" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="3edad" binding="helpCard" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <card name="Card6"/>
             </constraints>
             <properties>
               <background color="-13419967"/>
+              <foreground color="-1"/>
             </properties>
             <border type="none"/>
             <children>
-              <hspacer id="6b8b2">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </hspacer>
               <component id="84543" class="javax.swing.JLabel" binding="helpLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font size="16"/>
@@ -144,60 +147,87 @@
           </grid>
         </children>
       </grid>
-      <grid id="683ca" class="javax.swing.JMenuBar" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d0b9d" binding="menuPanel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="253" height="25"/>
-          </grid>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-13419967"/>
+          <foreground color="-1"/>
+        </properties>
         <border type="none"/>
         <children>
-          <component id="13858" class="javax.swing.JMenuItem" binding="infoMenuItem">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Informacje"/>
-            </properties>
-          </component>
-          <component id="b529b" class="javax.swing.JMenuItem" binding="helpMenuItem">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Pomoc"/>
-            </properties>
-          </component>
-          <component id="e1386" class="javax.swing.JMenuItem" binding="exitMenuItem">
-            <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Wyjście"/>
-            </properties>
-          </component>
-          <component id="2de08" class="javax.swing.JMenuItem" binding="mainMenuItem">
+          <grid id="683ca" class="javax.swing.JMenuBar" binding="menuBar" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Menu główne"/>
+              <background color="-13419967"/>
+              <foreground color="-1"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="13858" class="javax.swing.JMenuItem" binding="infoMenuItem">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <armed value="false"/>
+                  <background color="-13419967"/>
+                  <enabled value="true"/>
+                  <foreground color="-1"/>
+                  <text value="Informacje"/>
+                </properties>
+              </component>
+              <component id="b529b" class="javax.swing.JMenuItem" binding="helpMenuItem">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <armed value="false"/>
+                  <background color="-13419967"/>
+                  <foreground color="-1"/>
+                  <text value="Pomoc"/>
+                </properties>
+              </component>
+              <component id="e1386" class="javax.swing.JMenuItem" binding="exitMenuItem">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-13419967"/>
+                  <foreground color="-1"/>
+                  <text value="Wyjście"/>
+                </properties>
+              </component>
+              <component id="2de08" class="javax.swing.JMenuItem" binding="mainMenuItem">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-13419967"/>
+                  <foreground color="-1"/>
+                  <text value="Menu główne"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="a3b0c" class="javax.swing.JLabel" binding="clockLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13419967"/>
+              <font size="18" style="1"/>
+              <foreground color="-1"/>
+              <horizontalTextPosition value="0"/>
+              <text value=""/>
             </properties>
           </component>
         </children>
       </grid>
-      <component id="df3d7" class="javax.swing.JLabel" binding="clockLabel">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font size="18"/>
-          <horizontalTextPosition value="2"/>
-          <text value=""/>
-        </properties>
-      </component>
     </children>
   </grid>
 </form>

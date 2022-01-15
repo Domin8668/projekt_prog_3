@@ -1,3 +1,5 @@
+import com.formdev.flatlaf.FlatLightLaf;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,6 +30,8 @@ public class ListaZakupow {
     private JTextArea inputTextArea;
     private JButton calculateButton;
     private JScrollPane inputScrollPane;
+    private JMenuBar menuBar;
+    private JPanel menuPanel;
     private File[] files;
     private ArrayList<String> input;
     private ArrayList<String> result;
@@ -45,6 +49,8 @@ public class ListaZakupow {
 
         startClock();
 
+        menuPanel.setBorder(BorderFactory.createLineBorder(Color.white));
+        menuBar.setBorder(null);
         mainMenuItem.addActionListener(e -> cl.show(cardPanel, "1"));
         infoMenuItem.addActionListener(e -> {
             infoLabel.setText("""
@@ -124,7 +130,11 @@ public class ListaZakupow {
     }
 
     public static void main(String[] args) {
+        FlatLightLaf.setup(); //setting the look and feel
+        JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("Lista Zakupów");
+        frame.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(23,180,252));
+        frame.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.white);
         frame.setContentPane(new ListaZakupow().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
