@@ -10,15 +10,12 @@ public class LoadFromFile {
         ArrayList<String> arr = new ArrayList<>();
         if(files != null) {
             for (File file : files) {
-                String str = Files.readString(Paths.get(file.getAbsolutePath()));
+                String str = Files.readString(Paths.get(file.getAbsolutePath())).strip();
                 arr.add(str);
             }
         }
         else
-            arr.add(null);
-        for(String s : arr) {
-            System.out.println(s);
-        }
+            arr.add("");
         return arr;
     }
 }
