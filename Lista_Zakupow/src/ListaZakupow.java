@@ -88,11 +88,7 @@ public class ListaZakupow {
         chooseFilesButton.addActionListener(e -> {
             try {
                 chooseFiles();
-                if(files == null) {
-                    JOptionPane.showMessageDialog(mainPanel, "Nie wybrano żadnego pliku.",
-                            "Błąd pliku", JOptionPane.ERROR_MESSAGE);
-                }
-                else {
+                if(files != null) {
                     input = LoadFromFile.getInput(files);
                     StringBuilder inputToDisplay = new StringBuilder();
                     for(int i = 0; i < files.length; i++) {
