@@ -97,14 +97,20 @@ public class ListaZakupow {
         chooseFilesButton.addActionListener(e -> {
             try {
                 chooseFiles();
-                input = LoadFromFile.getInput(files);
-                StringBuilder inputToDisplay = new StringBuilder();
-                for(int i = 0; i < files.length; i++) {
-                    inputToDisplay.append("Plik ").append(files[i].getName()).append("\n");
-                    inputToDisplay.append(input.get(i)).append("\n\n");
+                if(files == null) {
+                    JOptionPane.showMessageDialog(mainPanel, "Nie wybrano żadnego pliku.",
+                            "Błąd krytyczny", JOptionPane.ERROR_MESSAGE);
                 }
-                inputTextArea.setText(String.valueOf(inputToDisplay));
-                cl.show(cardPanel, "2");
+                else {
+                    input = LoadFromFile.getInput(files);
+                    StringBuilder inputToDisplay = new StringBuilder();
+                    for(int i = 0; i < files.length; i++) {
+                        inputToDisplay.append("Plik ").append(files[i].getName()).append("\n");
+                        inputToDisplay.append(input.get(i)).append("\n\n");
+                    }
+                    inputTextArea.setText(String.valueOf(inputToDisplay));
+                    cl.show(cardPanel, "2");
+                }
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
