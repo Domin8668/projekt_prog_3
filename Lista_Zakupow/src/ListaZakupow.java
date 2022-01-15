@@ -2,7 +2,6 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
@@ -27,11 +26,11 @@ public class ListaZakupow {
     private JButton chooseFilesButton;
     private JLabel infoLabel;
     private JLabel helpLabel;
-    private JTextArea inputTextArea;
     private JButton calculateButton;
     private JScrollPane inputScrollPane;
     private JMenuBar menuBar;
     private JPanel menuPanel;
+    private JTextPane inputTextPanel;
     private File[] files;
     private ArrayList<String> input;
     private ArrayList<String> result;
@@ -85,21 +84,12 @@ public class ListaZakupow {
             cl.show(cardPanel, "6");
         });
         exitMenuItem.addActionListener(e -> System.exit(0));
-        calculateButton.addActionListener(e -> {
-            cl.show(cardPanel, "4"); // Tymczasowo przechodzimy od razu do output
-            Calculate c = new Calculate();
-            c.calculate(input);
-            result = c.result;
-            for(String s : result) {
-                System.out.println(s);
-            }
-        });
         chooseFilesButton.addActionListener(e -> {
             try {
                 chooseFiles();
                 if(files == null) {
                     JOptionPane.showMessageDialog(mainPanel, "Nie wybrano żadnego pliku.",
-                            "Błąd krytyczny", JOptionPane.ERROR_MESSAGE);
+                            "Błąd pliku", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
                     input = LoadFromFile.getInput(files);
@@ -108,11 +98,20 @@ public class ListaZakupow {
                         inputToDisplay.append("Plik ").append(files[i].getName()).append("\n");
                         inputToDisplay.append(input.get(i)).append("\n\n");
                     }
-                    inputTextArea.setText(String.valueOf(inputToDisplay));
                     cl.show(cardPanel, "2");
+                    inputTextPanel.setText(String.valueOf(inputToDisplay));
                 }
             } catch (IOException ex) {
                 ex.printStackTrace();
+            }
+        });
+        calculateButton.addActionListener(e -> {
+            cl.show(cardPanel, "4"); // Tymczasowo przechodzimy od razu do output, dodać loading bar
+            Calculate c = new Calculate();
+            c.calculate(input);
+            result = c.result;
+            for(String s : result) {
+                System.out.println(s);
             }
         });
     }
@@ -136,15 +135,15 @@ public class ListaZakupow {
     }
 
     public static void main(String[] args) {
-        FlatLightLaf.setup(); //setting the look and feel
+        FlatLightLaf.setup();
         JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("Lista Zakupów");
-        frame.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(23,180,252));
+        frame.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(51,58,65));
         frame.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.white);
         frame.setContentPane(new ListaZakupow().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(720, 530);
+        frame.setSize(720, 540);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
