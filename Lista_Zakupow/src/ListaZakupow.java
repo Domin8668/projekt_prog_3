@@ -9,6 +9,7 @@ import javax.swing.filechooser.*;
 public class ListaZakupow {
     private JPanel mainPanel;
     private JPanel cardPanel;
+    private JMenuItem mainMenuItem;
     private JMenuItem infoMenuItem;
     private JMenuItem helpMenuItem;
     private JMenuItem exitMenuItem;
@@ -16,7 +17,6 @@ public class ListaZakupow {
     private JPanel inputCard;
     private JPanel loadingCard;
     private JPanel outputCard;
-    private JMenuItem mainMenuItem;
     private JPanel infoCard;
     private JPanel helpCard;
     private JLabel clockLabel;

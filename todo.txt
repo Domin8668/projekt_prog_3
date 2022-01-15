@@ -5,13 +5,9 @@ Ogólne założenia:
 
 Główny program:
 - osobna klasa na wczytywanie z pliku
-- osobna klasa na wyświetlanie tego co wczytaliśmy
 - osobna klasa na obliczanie
-- osobna klasa na wyświetlanie tego co obliczyliśmy
 - osobna klasa na wypisanie tego co obliczyliśmy do txt wyjście
 
 Dodatki:
-- menu bar główne: pomoc, info, zamknij
-- widok menadżera plików wejściowych
+- ekran pomoc i info
 - loading bar
-- zegar
