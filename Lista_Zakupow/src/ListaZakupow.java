@@ -22,6 +22,7 @@ public class ListaZakupow {
     private JPanel helpCard;
     private JLabel clockLabel;
     private JButton chooseFilesButton;
+    private JLabel infoLabel;
     private File[] files;
     private ArrayList<String> input;
     CardLayout cl = new CardLayout();
@@ -30,7 +31,7 @@ public class ListaZakupow {
         cardPanel.setLayout(cl);
         inputCard.setBackground(Color.green);
         menuCard.setBackground(Color.yellow);
-        infoCard.setBackground(Color.blue);
+//        infoCard.setBackground(Color.blue);
         helpCard.setBackground(Color.red);
         cardPanel.add(menuCard, "1");
         cardPanel.add(inputCard, "2");
@@ -57,6 +58,18 @@ public class ListaZakupow {
 //                System.out.println(s);
 //            }
         });
+
+        // InfoLabel
+//        infoCard.setBackground(Color.blue);
+        infoLabel.setText("<html>"
+        + "Aplikacja \"Lista zakupów\" napisana w języku Java<br><br>"
+        + "Autorzy:<br>Kamil Giziński<br>Dominik Sigulski<br>Bartosz Rolnik<br><br>"
+        + "Projekt z przedmiotu Programowanie III<br>"
+        + "Wydział Matematyki Stosowanej, Informatyka, sem. III, rok 2021/22<br><br>"
+        + "\"Lista zakupów\" to zadanie z konkursu \"Algorytmion\" z roku 2012,<br>"
+        + "które polega na znalezieniu takich kombinacji produktów,<br>"
+        + "aby suma ich wartości odpowiadała budżetowi jaki mamy do rozdysponowania."
+        + "</html>");
     }
 
     public void startClock() {
