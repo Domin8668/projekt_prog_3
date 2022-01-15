@@ -15,6 +15,3 @@ Dodatki:
 - widok menadżera plików wejściowych
 - loading bar
 - zegar
-
-
-

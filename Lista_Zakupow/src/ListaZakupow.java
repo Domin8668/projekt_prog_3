@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.filechooser.*;
 
 public class ListaZakupow {
     private JPanel mainPanel;
@@ -28,6 +29,11 @@ public class ListaZakupow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cl.show(cardPanel, "2");
+                FileFilter txtFileFilter = new FileNameExtensionFilter("Text File","txt");
+                JFileChooser fc = new JFileChooser();
+                fc.setAcceptAllFileFilterUsed(false);
+                fc.setFileFilter(txtFileFilter);
+                fc.showOpenDialog(mainPanel);
             }
         });
         exitMenuItem.addActionListener(new ActionListener() {
@@ -44,6 +50,7 @@ public class ListaZakupow {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(720, 480);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
