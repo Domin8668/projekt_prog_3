@@ -23,6 +23,7 @@ public class ListaZakupow {
     private JLabel clockLabel;
     private JButton chooseFilesButton;
     private JLabel infoLabel;
+    private JLabel pomocLabel;
     private File[] files;
     private ArrayList<String> input;
     CardLayout cl = new CardLayout();
@@ -31,8 +32,6 @@ public class ListaZakupow {
         cardPanel.setLayout(cl);
         inputCard.setBackground(Color.green);
         menuCard.setBackground(Color.yellow);
-//        infoCard.setBackground(Color.blue);
-        helpCard.setBackground(Color.red);
         cardPanel.add(menuCard, "1");
         cardPanel.add(inputCard, "2");
         cardPanel.add(loadingCard, "3");
@@ -59,17 +58,33 @@ public class ListaZakupow {
 //            }
         });
 
-        // InfoLabel
-//        infoCard.setBackground(Color.blue);
+        // infoLabel
         infoLabel.setText("<html>"
-        + "Aplikacja \"Lista zakupów\" napisana w języku Java<br><br>"
-        + "Autorzy:<br>Kamil Giziński<br>Dominik Sigulski<br>Bartosz Rolnik<br><br>"
-        + "Projekt z przedmiotu Programowanie III<br>"
-        + "Wydział Matematyki Stosowanej, Informatyka, sem. III, rok 2021/22<br><br>"
-        + "\"Lista zakupów\" to zadanie z konkursu \"Algorytmion\" z roku 2012,<br>"
-        + "które polega na znalezieniu takich kombinacji produktów,<br>"
-        + "aby suma ich wartości odpowiadała budżetowi jaki mamy do rozdysponowania."
-        + "</html>");
+            + "Aplikacja \"Lista zakupów\" napisana w języku Java<br><br>"
+            + "Autorzy:<br>&emsp;&emsp;Kamil Giziński<br>&emsp;&emsp;Dominik Sigulski<br>&emsp;&emsp;Bartosz Rolnik<br><br>"
+            + "Projekt z przedmiotu Programowanie III<br>"
+            + "Wydział Matematyki Stosowanej, Informatyka, sem. III, rok 2021/22<br><br>"
+            + "\"Lista zakupów\" to zadanie z konkursu \"Algorytmion\" z roku 2012,<br>"
+            + "które polega na znalezieniu takich kombinacji produktów,<br>"
+            + "aby suma ich wartości odpowiadała budżetowi jaki mamy do rozdysponowania."
+            + "</html>");
+
+        // pomocLabel
+        pomocLabel.setText("<html>"
+                + "Do wyboru z głównego panelu menu mamy następujące opcje:<br><br>"
+                + "&emsp;&emsp;1. Menu główne<br>&emsp;&emsp;2. Informacje<br>&emsp;&emsp;3. Pomoc<br>&emsp;&emsp;4. Wyjście<br><br>"
+                + "Opcja 1:<br>"
+                + "&emsp;&emsp;W menu głównym możemy podjąc decyzję o tym jakie pliki chcemy analizować<br>"
+                + "&emsp;&emsp;klikając przycisk \"Wybierz pliki\". Następnie poprzez naciśnięcie kolejnego przycisku<br>"
+                + "&emsp;&emsp;program analizuje dane i zwraca wynik na ekran oraz do pliku.<br>"
+                + "Opcja 2:<br>"
+                + "&emsp;&emsp;Wyświetlenie informacji na temat zadania, autorów oraz przedmiotu w zakresie którego<br>"
+                + "&emsp;&emsp;realizowany był projekt.<br><br>"
+                + "Opcja 3:<br>"
+                + "&emsp;&emsp;Wyświetlenie informacji pomocniczych na temat opcji zawartych w aplikacji.<br><br>"
+                + "Opcja 4:<br>"
+                + "&emsp;&emsp;Zakończenie działania aplikacji.<br><br>"
+                + "</html>");
     }
 
     public void startClock() {
@@ -98,7 +113,7 @@ public class ListaZakupow {
         frame.setContentPane(new ListaZakupow().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(720, 480);
+        frame.setSize(720, 530);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
