@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.filechooser.*;
@@ -47,7 +48,11 @@ public class ListaZakupow {
         exitMenuItem.addActionListener(e -> System.exit(0));
         chooseFilesButton.addActionListener(e -> {
             chooseFiles();
-            input = LoadFromFile.getInput(files);
+            try {
+                input = LoadFromFile.getInput(files);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             for(String s: input) {
                 System.out.println(s);
             }
@@ -61,7 +66,7 @@ public class ListaZakupow {
     }
 
     public void chooseFiles() {
-        JFileChooser fc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        JFileChooser fc = new JFileChooser(new File("Test/"));
         FileFilter txtFileFilter = new FileNameExtensionFilter("Pliki tekstowe","txt");
         fc.setMultiSelectionEnabled(true);
         fc.setAcceptAllFileFilterUsed(false);
