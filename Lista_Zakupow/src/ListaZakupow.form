@@ -174,7 +174,7 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-13419967"/>
+          <background color="-10130317"/>
           <foreground color="-1"/>
         </properties>
         <border type="none"/>
@@ -198,6 +198,7 @@
                   <armed value="false"/>
                   <background color="-13419967"/>
                   <enabled value="true"/>
+                  <font size="16"/>
                   <foreground color="-1"/>
                   <text value="Informacje"/>
                 </properties>
@@ -209,6 +210,8 @@
                 <properties>
                   <armed value="false"/>
                   <background color="-13419967"/>
+                  <enabled value="true"/>
+                  <font size="16"/>
                   <foreground color="-1"/>
                   <text value="Pomoc"/>
                 </properties>
@@ -219,6 +222,7 @@
                 </constraints>
                 <properties>
                   <background color="-13419967"/>
+                  <font size="16"/>
                   <foreground color="-1"/>
                   <text value="Wyjście"/>
                 </properties>
@@ -229,6 +233,7 @@
                 </constraints>
                 <properties>
                   <background color="-13419967"/>
+                  <font size="16"/>
                   <foreground color="-1"/>
                   <selected value="false"/>
                   <text value="Menu główne"/>
@@ -242,7 +247,7 @@
             </constraints>
             <properties>
               <background color="-13419967"/>
-              <font size="18" style="1"/>
+              <font size="20" style="1"/>
               <foreground color="-1"/>
               <horizontalTextPosition value="0"/>
               <text value=""/>

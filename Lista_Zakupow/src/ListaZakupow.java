@@ -49,25 +49,7 @@ public class ListaZakupow {
         cl.show(cardPanel, "1");
 
         startClock();
-
-        menuPanel.setBorder(BorderFactory.createLineBorder(Color.white));
-        menuBar.setBorder(null);
-
-        ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/main.jpg")));
-        Image image = imageIcon.getImage();
-        Image newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
-        ImageIcon main_icon = new ImageIcon(newimg);
-        mainMenuItem.setIcon(main_icon);
-        imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/info.jpg")));
-        image = imageIcon.getImage();
-        newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
-        ImageIcon info_icon = new ImageIcon(newimg);
-        infoMenuItem.setIcon(info_icon);
-        imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/help.jpg")));
-        image = imageIcon.getImage();
-        newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
-        ImageIcon help_icon = new ImageIcon(newimg);
-        helpMenuItem.setIcon(help_icon);
+        addIcons();
 
         mainMenuItem.addActionListener(e -> cl.show(cardPanel, "1"));
         infoMenuItem.addActionListener(e -> {
@@ -136,6 +118,25 @@ public class ListaZakupow {
         ActionListener updateClockAction = e -> clockLabel.setText(((new Date().toString()).substring(11, 19) + "    "));
         Timer t = new Timer(100, updateClockAction);
         t.start();
+    }
+
+    public void addIcons() {
+        menuBar.setBorder(null);
+        ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/main.jpg")));
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
+        ImageIcon main_icon = new ImageIcon(newimg);
+        mainMenuItem.setIcon(main_icon);
+        imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/info.jpg")));
+        image = imageIcon.getImage();
+        newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
+        ImageIcon info_icon = new ImageIcon(newimg);
+        infoMenuItem.setIcon(info_icon);
+        imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/help.jpg")));
+        image = imageIcon.getImage();
+        newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
+        ImageIcon help_icon = new ImageIcon(newimg);
+        helpMenuItem.setIcon(help_icon);
     }
 
     public void chooseFiles() {
