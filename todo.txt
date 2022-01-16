@@ -1,12 +1,8 @@
 Ogólne założenia:
-- wejście -> textarea, potem przycisk 'dalej' i sprawdza kombinacje (tutaj dajemy loading bar) i pokazujemy wyjście
+- wejście -> textarea, potem przycisk 'Oblicz' i sprawdza kombinacje (tutaj dajemy loading bar) i pokazujemy wyjście
 - wyjście do pliku i na ekran
 - if błąd -> textarea
 
-Główny program:
-- osobna klasa na wczytywanie z pliku
-- osobna klasa na obliczanie
-- osobna klasa na wypisanie tego co obliczyliśmy do txt wyjście
-
-Dodatki:
+Do zrobienia:
 - loading bar
+- wypisywanie na ekran i wywołanie wypisania do pliku
