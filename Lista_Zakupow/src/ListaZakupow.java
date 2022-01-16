@@ -105,7 +105,8 @@ public class ListaZakupow {
                 for(String s : result) {
                     System.out.println(s);
                 }
-                cl.show(cardPanel, "3");
+                displayOutput();
+//                cl.show(cardPanel, "3");
                 cl.show(cardPanel, "4"); // Tymczasowo przechodzimy do output, dodać loading bar
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(mainPanel, ex.getStackTrace(),
