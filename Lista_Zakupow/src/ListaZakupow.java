@@ -139,6 +139,12 @@ public class ListaZakupow {
         newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
         ImageIcon help_icon = new ImageIcon(newimg);
         helpMenuItem.setIcon(help_icon);
+        imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/exit.jpg")));
+        image = imageIcon.getImage();
+        newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
+        ImageIcon exit_icon = new ImageIcon(newimg);
+        exitMenuItem.setIcon(exit_icon);
+
     }
 
     public void chooseFiles() {
