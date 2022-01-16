@@ -1,9 +1,3 @@
 Plik 1 wej.txt:
 1, 3, 4
 4, 7
-
-Plik 2 wej2.txt:
-Brak kombinacji.
-
-Plik 3 wej3.txt:
-Brak kombinacji.

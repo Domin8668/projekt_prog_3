@@ -2,6 +2,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
@@ -10,9 +11,12 @@ import java.util.Date;
 import java.util.Objects;
 import javax.swing.filechooser.*;
 
-public class ListaZakupow {
+public class ListaZakupow implements ActionListener {
+    final private CardLayout cl;
     private JPanel mainPanel;
     private JPanel cardPanel;
+    private JPanel menuPanel;
+    private JMenuBar menuBar;
     private JMenuItem mainMenuItem;
     private JMenuItem infoMenuItem;
     private JMenuItem helpMenuItem;
@@ -25,22 +29,23 @@ public class ListaZakupow {
     private JPanel helpCard;
     private JLabel clockLabel;
     private JButton chooseFilesButton;
-    private JLabel infoLabel;
-    private JLabel helpLabel;
-    private JButton calculateButton;
     private JScrollPane inputScrollPane;
     private JTextPane inputTextPane;
-    private JMenuBar menuBar;
-    private JPanel menuPanel;
-    private JTextPane outputTextPane;
+    private JButton calculateButton;
+    private JProgressBar loadingProgressBar;
     private JScrollPane outputScrollPane;
+    private JTextPane outputTextPane;
+    private JLabel infoLabel;
+    private JLabel helpLabel;
+    private JLabel loadingLabel;
 
     private File[] files;
     private ArrayList<String> input;
     private ArrayList<String> result;
+    final int[] i = {5};
 
     public ListaZakupow() {
-        CardLayout cl = new CardLayout();
+        cl = new CardLayout();
         cardPanel.setLayout(cl);
         cardPanel.add(menuCard, "1");
         cardPanel.add(inputCard, "2");
@@ -104,8 +109,8 @@ public class ListaZakupow {
                 result = c.getResult();
                 displayOutput();
                 SaveToFile.saveData(result, files);
-//                cl.show(cardPanel, "3");
-                cl.show(cardPanel, "4"); // Tymczasowo przechodzimy do output, dodać loading bar
+                cl.show(cardPanel, "3");
+                displayProgressBar();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(mainPanel, ex.getStackTrace(),
                         "Błąd krytyczny", JOptionPane.ERROR_MESSAGE);
@@ -167,6 +172,25 @@ public class ListaZakupow {
             }
             inputTextPane.setText(String.valueOf(inputToDisplay).substring(0, inputToDisplay.length() - 2));
         }
+    }
+
+    public void displayProgressBar() {
+        loadingProgressBar.setValue(0);
+        loadingProgressBar.setMaximum(100);
+        loadingProgressBar.setStringPainted(true);
+        Timer p;
+        p = new Timer(100, this);
+        p.start();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(i[0] <= 100) {
+            loadingProgressBar.setValue(i[0]);
+            i[0] += 5;
+        }
+        else
+            cl.show(cardPanel, "4");
     }
 
     public void displayOutput() {
