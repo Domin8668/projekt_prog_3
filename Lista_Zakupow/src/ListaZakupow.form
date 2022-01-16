@@ -230,6 +230,7 @@
                 <properties>
                   <background color="-13419967"/>
                   <foreground color="-1"/>
+                  <selected value="false"/>
                   <text value="Menu główne"/>
                 </properties>
               </component>
