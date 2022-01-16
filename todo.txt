@@ -1,8 +1,6 @@
 Ogólne założenia:
 - wejście -> textarea, potem przycisk 'Oblicz' i sprawdza kombinacje (tutaj dajemy loading bar) i pokazujemy wyjście
 - wyjście do pliku i na ekran
-- if błąd -> textarea
 
 Do zrobienia:
-- loading bar
-- wypisywanie na ekran i wywołanie wypisania do pliku
+-
