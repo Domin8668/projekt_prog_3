@@ -48,11 +48,9 @@ class Calculate {
             m = lines.length;
             values = new ArrayList<>();
             budget = (int) (Double.parseDouble(lines[0]) * 100);
-            System.out.println("Budżet: " + budget);
             for (int i = 1; i < m; i++) {
                 int value = (int) (Double.parseDouble(lines[i].split("\\s")[0]) * 100);
                 values.add(value);
-                System.out.println("Wartość: " + value);
             }
             sum_up(values, budget);
             if(file.size() > 0) {

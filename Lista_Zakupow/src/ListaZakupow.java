@@ -29,9 +29,11 @@ public class ListaZakupow {
     private JLabel helpLabel;
     private JButton calculateButton;
     private JScrollPane inputScrollPane;
-    private JTextPane inputTextPanel;
+    private JTextPane inputTextPane;
     private JMenuBar menuBar;
     private JPanel menuPanel;
+    private JTextPane outputTextPane;
+    private JScrollPane outputScrollPane;
 
     private File[] files;
     private ArrayList<String> input;
@@ -88,29 +90,28 @@ public class ListaZakupow {
         chooseFilesButton.addActionListener(e -> {
             try {
                 chooseFiles();
-                if(files != null) {
-                    input = LoadFromFile.getInput(files);
-                    StringBuilder inputToDisplay = new StringBuilder();
-                    for(int i = 0; i < files.length; i++) {
-                        inputToDisplay.append("Plik ").append(files[i].getName()).append("\n");
-                        inputToDisplay.append(input.get(i)).append("\n\n");
-                    }
-                    cl.show(cardPanel, "2");
-                    inputTextPanel.setText(String.valueOf(inputToDisplay));
-                }
-            } catch (IOException ex) {
+                displayInput();
+                cl.show(cardPanel, "2");
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(mainPanel, ex.getStackTrace(),
                         "Błąd krytyczny", JOptionPane.ERROR_MESSAGE);
             }
         });
         calculateButton.addActionListener(e -> {
-            cl.show(cardPanel, "4"); // Tymczasowo przechodzimy od razu do output, dodać loading bar
-            Calculate c = new Calculate();
-            c.calculate(input);
-            result = c.getResult();
-            for(String s : result) {
-                System.out.println(s);
+            try {
+                Calculate c = new Calculate();
+                c.calculate(input);
+                result = c.getResult();
+                for(String s : result) {
+                    System.out.println(s);
+                }
+                cl.show(cardPanel, "3");
+                cl.show(cardPanel, "4"); // Tymczasowo przechodzimy do output, dodać loading bar
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(mainPanel, ex.getStackTrace(),
+                        "Błąd krytyczny", JOptionPane.ERROR_MESSAGE);
             }
+
         });
     }
 
@@ -148,6 +149,36 @@ public class ListaZakupow {
         int r = fc.showOpenDialog(mainPanel);
         if(r == JFileChooser.APPROVE_OPTION) {
             files = fc.getSelectedFiles();
+        }
+    }
+
+    public void displayInput() throws IOException {
+        if(files != null) {
+            input = LoadFromFile.getInput(files);
+            StringBuilder inputToDisplay = new StringBuilder();
+            for(int i = 0; i < files.length; i++) {
+                inputToDisplay.append("Plik ").append(files[i].getName()).append(":\n");
+                inputToDisplay.append(input.get(i)).append("\n\n");
+            }
+            inputTextPane.setText(String.valueOf(inputToDisplay));
+        }
+    }
+
+    public void displayOutput() {
+        if(result != null) {
+            int counter = 1;
+            StringBuilder outputToDisplay = new StringBuilder();
+            for(int i = 0; i < files.length; i++) {
+                String[] combinations = result.get(i).split(";");
+                outputToDisplay.append("Plik ").append(counter).append(" ").append(files[i].getName()).append(":\n");
+                for (String combination : combinations) {
+                    outputToDisplay.append(combination).append("\n");
+                }
+                counter++;
+                outputToDisplay.append("\n\n");
+            }
+            System.out.println(outputToDisplay);
+            outputTextPane.setText(String.valueOf(outputToDisplay));
         }
     }
 
