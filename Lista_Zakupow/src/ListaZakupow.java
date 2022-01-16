@@ -194,6 +194,8 @@ public class ListaZakupow implements ActionListener {
             stopTimer();
             cl.show(cardPanel, "4");
             changeMenuItems(true);
+            loadingProgressBar.setValue(0);
+            i[0] = 5;
         }
     }
 
