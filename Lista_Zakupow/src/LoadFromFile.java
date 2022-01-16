@@ -7,15 +7,15 @@ import java.util.ArrayList;
 
 public class LoadFromFile {
     public static ArrayList<String> getInput(File[] files) throws IOException{
-        ArrayList<String> arr = new ArrayList<>();
+        ArrayList<String> input = new ArrayList<>();
         if(files != null) {
             for(File file : files) {
                 String str = Files.readString(Paths.get(file.getAbsolutePath())).strip();
-                arr.add(str);
+                input.add(str);
             }
         }
         else
-            arr.add("");
-        return arr;
+            input.add("");
+        return input;
     }
 }
