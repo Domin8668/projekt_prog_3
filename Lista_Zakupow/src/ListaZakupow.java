@@ -51,7 +51,19 @@ public class ListaZakupow {
 
         menuPanel.setBorder(BorderFactory.createLineBorder(Color.white));
         menuBar.setBorder(null);
+
+        /*
+        Może u was wczyta te gówno :)
+        ImageIcon info_icon = new ImageIcon("/Icons/info.png)");
+        infoMenuItem.setIcon(info_icon);
+        ImageIcon help_icon = new ImageIcon("/Icons/help.png)");
+        helpMenuItem.setIcon(help_icon);
+        ImageIcon main_icon = new ImageIcon("/Icons/main.png)");
+        mainMenuItem.setIcon(main_icon);
+        */
+
         mainMenuItem.addActionListener(e -> cl.show(cardPanel, "1"));
+
         infoMenuItem.addActionListener(e -> {
             infoLabel.setText("""
             <html>
