@@ -13,8 +13,6 @@ class Calculate {
         int s = 0;
         for (int x : partial) s += x;
         if (s == target) {
-            System.out.println("Wyniki: " + Arrays.toString(partial.toArray()) + target);
-            System.out.println("Liczby: " + Arrays.toString(numbersCopy.toArray()));
             ArrayList<String> indices = new ArrayList<>();
             for(int i : partial) {
                 indices.add(String.valueOf(numbersCopy.indexOf(i)));

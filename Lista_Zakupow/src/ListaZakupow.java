@@ -102,10 +102,8 @@ public class ListaZakupow {
                 Calculate c = new Calculate();
                 c.calculate(input);
                 result = c.getResult();
-                for(String s : result) {
-                    System.out.println(s);
-                }
                 displayOutput();
+                SaveToFile.saveData(result, files);
 //                cl.show(cardPanel, "3");
                 cl.show(cardPanel, "4"); // Tymczasowo przechodzimy do output, dodać loading bar
             } catch (Exception ex) {
@@ -167,7 +165,7 @@ public class ListaZakupow {
                 inputToDisplay.append("Plik ").append(files[i].getName()).append(":\n");
                 inputToDisplay.append(input.get(i)).append("\n\n");
             }
-            inputTextPane.setText(String.valueOf(inputToDisplay));
+            inputTextPane.setText(String.valueOf(inputToDisplay).substring(0, inputToDisplay.length() - 2));
         }
     }
 
@@ -182,10 +180,9 @@ public class ListaZakupow {
                     outputToDisplay.append(combination).append("\n");
                 }
                 counter++;
-                outputToDisplay.append("\n\n");
+                outputToDisplay.append("\n");
             }
-            System.out.println(outputToDisplay);
-            outputTextPane.setText(String.valueOf(outputToDisplay));
+            outputTextPane.setText(String.valueOf(outputToDisplay).substring(0, outputToDisplay.length() - 2));
         }
     }
 

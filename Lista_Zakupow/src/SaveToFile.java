@@ -4,23 +4,23 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class SaveToFile {
-    public static void saveData(ArrayList<String> arr) throws FileNotFoundException {
+    public static void saveData(ArrayList<String> result, File[] files) throws FileNotFoundException {
         PrintWriter outputFile = new PrintWriter("wyjscie.txt");
 
-        if(arr != null) {
+        if(result != null) {
             int counter = 1;
-            for (String file_comb : arr) {
-                outputFile.print("Plik " + counter + ":");
-                String[] combinations = file_comb.split(";");
+            StringBuilder outputToFile = new StringBuilder();
+            for(int i = 0; i < files.length; i++) {
+                String[] combinations = result.get(i).split(";");
+                outputToFile.append("Plik ").append(counter).append(" ").append(files[i].getName()).append(":\n");
                 for (String combination : combinations) {
-                    outputFile.println(combination);
+                    outputToFile.append(combination).append("\n");
                 }
                 counter++;
-                outputFile.println();
+                outputToFile.append("\n");
             }
+            outputFile.write(String.valueOf(outputToFile).substring(0, outputToFile.length() - 2));
         }
-        else
-            System.out.println("Nie znaleziono pobranych danych z pliku wejściowego lub plik jest pusty.");
         outputFile.close();
     }
 }
