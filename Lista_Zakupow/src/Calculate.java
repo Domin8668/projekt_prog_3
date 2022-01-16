@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// TODO
-// Dodać zwracanie według indeksów a nie wartości
 class Calculate {
     private final ArrayList<String> result = new ArrayList<>();
+    private ArrayList<String> file = new ArrayList<>();
+    private ArrayList<Integer> numbersCopy = new ArrayList<>();
     public ArrayList<String> getResult() {
         return result;
     }
@@ -12,8 +12,15 @@ class Calculate {
     void sum_up_recursive(ArrayList<Integer> numbers, int target, ArrayList<Integer> partial) {
         int s = 0;
         for (int x : partial) s += x;
-        if (s == target)
-            result.add("sum(" + Arrays.toString(partial.toArray()) + ")=" + target);
+        if (s == target) {
+            System.out.println("Wyniki: " + Arrays.toString(partial.toArray()) + target);
+            System.out.println("Liczby: " + Arrays.toString(numbersCopy.toArray()));
+            ArrayList<String> indices = new ArrayList<>();
+            for(int i : partial) {
+                indices.add(String.valueOf(numbersCopy.indexOf(i)));
+            }
+            file.add(String.join(", ", indices));
+        }
         if (s >= target)
             return;
         for (int i = 0; i < numbers.size(); i++) {
@@ -27,6 +34,7 @@ class Calculate {
     }
 
     void sum_up(ArrayList<Integer> numbers, int target) {
+        numbersCopy = numbers;
         sum_up_recursive(numbers, target, new ArrayList<>());
     }
 
@@ -46,9 +54,12 @@ class Calculate {
                 values.add(value);
                 System.out.println("Wartość: " + value);
             }
-            int size = result.size();
             sum_up(values, budget);
-            if(size == result.size())
+            if(file.size() > 0) {
+                result.add(String.join(";", file));
+                file = new ArrayList<>();
+            }
+            else
                 result.add("Brak kombinacji.");
         }
     }
