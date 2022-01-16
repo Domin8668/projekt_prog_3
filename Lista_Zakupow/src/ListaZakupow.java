@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 import javax.swing.filechooser.*;
 
 public class ListaZakupow {
@@ -52,18 +53,23 @@ public class ListaZakupow {
         menuPanel.setBorder(BorderFactory.createLineBorder(Color.white));
         menuBar.setBorder(null);
 
-        /*
-        Może u was wczyta te gówno :)
-        ImageIcon info_icon = new ImageIcon("/Icons/info.png)");
-        infoMenuItem.setIcon(info_icon);
-        ImageIcon help_icon = new ImageIcon("/Icons/help.png)");
-        helpMenuItem.setIcon(help_icon);
-        ImageIcon main_icon = new ImageIcon("/Icons/main.png)");
+        ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/main.jpg")));
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
+        ImageIcon main_icon = new ImageIcon(newimg);
         mainMenuItem.setIcon(main_icon);
-        */
+        imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/info.jpg")));
+        image = imageIcon.getImage();
+        newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
+        ImageIcon info_icon = new ImageIcon(newimg);
+        infoMenuItem.setIcon(info_icon);
+        imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/resources/images/help.jpg")));
+        image = imageIcon.getImage();
+        newimg = image.getScaledInstance(25, 25,  java.awt.Image.SCALE_SMOOTH);
+        ImageIcon help_icon = new ImageIcon(newimg);
+        helpMenuItem.setIcon(help_icon);
 
         mainMenuItem.addActionListener(e -> cl.show(cardPanel, "1"));
-
         infoMenuItem.addActionListener(e -> {
             infoLabel.setText("""
             <html>
