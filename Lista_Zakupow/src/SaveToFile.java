@@ -13,7 +13,7 @@ public class SaveToFile {
             for(int i = 0; i < files.length; i++) {
                 String[] combinations = result.get(i).split(";");
                 outputToFile.append("Plik ").append(counter).append(" ").append(files[i].getName()).append(":\n");
-                for (String combination : combinations) {
+                for(String combination : combinations) {
                     outputToFile.append(combination).append("\n");
                 }
                 counter++;

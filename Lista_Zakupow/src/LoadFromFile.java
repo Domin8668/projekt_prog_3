@@ -9,7 +9,7 @@ public class LoadFromFile {
     public static ArrayList<String> getInput(File[] files) throws IOException{
         ArrayList<String> arr = new ArrayList<>();
         if(files != null) {
-            for (File file : files) {
+            for(File file : files) {
                 String str = Files.readString(Paths.get(file.getAbsolutePath())).strip();
                 arr.add(str);
             }
