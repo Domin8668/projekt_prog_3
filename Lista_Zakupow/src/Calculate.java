@@ -9,33 +9,6 @@ class Calculate {
         return result;
     }
 
-    void sum_up_recursive(ArrayList<Integer> numbers, int target, ArrayList<Integer> partial) {
-        int s = 0;
-        for (int x : partial) s += x;
-        if (s == target) {
-            ArrayList<String> indices = new ArrayList<>();
-            for(int i : partial) {
-                indices.add(String.valueOf(numbersCopy.indexOf(i)));
-            }
-            file.add(String.join(", ", indices));
-        }
-        if (s >= target)
-            return;
-        for (int i = 0; i < numbers.size(); i++) {
-            ArrayList<Integer> remaining = new ArrayList<>();
-            int n = numbers.get(i);
-            for (int j = i + 1; j < numbers.size(); j++) remaining.add(numbers.get(j));
-            ArrayList<Integer> partial_rec = new ArrayList<>(partial);
-            partial_rec.add(n);
-            sum_up_recursive(remaining, target, partial_rec);
-        }
-    }
-
-    void sum_up(ArrayList<Integer> numbers, int target) {
-        numbersCopy = numbers;
-        sum_up_recursive(numbers, target, new ArrayList<>());
-    }
-
     public void calculate(ArrayList<String> input) {
         int m;
         ArrayList<Integer> values;
@@ -57,6 +30,33 @@ class Calculate {
             }
             else
                 result.add("Brak kombinacji.");
+        }
+    }
+
+    void sum_up(ArrayList<Integer> numbers, int target) {
+        numbersCopy = numbers;
+        sum_up_recursive(numbers, target, new ArrayList<>());
+    }
+
+    void sum_up_recursive(ArrayList<Integer> numbers, int target, ArrayList<Integer> partial) {
+        int s = 0;
+        for (int x : partial) s += x;
+        if (s == target) {
+            ArrayList<String> indices = new ArrayList<>();
+            for(int i : partial) {
+                indices.add(String.valueOf(numbersCopy.indexOf(i)));
+            }
+            file.add(String.join(", ", indices));
+        }
+        if (s >= target)
+            return;
+        for (int i = 0; i < numbers.size(); i++) {
+            ArrayList<Integer> remaining = new ArrayList<>();
+            int n = numbers.get(i);
+            for (int j = i + 1; j < numbers.size(); j++) remaining.add(numbers.get(j));
+            ArrayList<Integer> partial_rec = new ArrayList<>(partial);
+            partial_rec.add(n);
+            sum_up_recursive(remaining, target, partial_rec);
         }
     }
 }
