@@ -43,6 +43,7 @@ public class ListaZakupow implements ActionListener {
     private ArrayList<String> input;
     private ArrayList<String> result;
     final int[] i = {5};
+    private Timer p;
 
     public ListaZakupow() {
         cl = new CardLayout();
@@ -178,7 +179,7 @@ public class ListaZakupow implements ActionListener {
         loadingProgressBar.setValue(0);
         loadingProgressBar.setMaximum(100);
         loadingProgressBar.setStringPainted(true);
-        Timer p;
+        changeMenuItems(false);
         p = new Timer(100, this);
         p.start();
     }
@@ -189,8 +190,22 @@ public class ListaZakupow implements ActionListener {
             loadingProgressBar.setValue(i[0]);
             i[0] += 5;
         }
-        else
+        else {
+            stopTimer();
             cl.show(cardPanel, "4");
+            changeMenuItems(true);
+        }
+    }
+
+    public void stopTimer() {
+        p.stop();
+    }
+
+    public void changeMenuItems(boolean b) {
+        mainMenuItem.setEnabled(b);
+        helpMenuItem.setEnabled(b);
+        infoMenuItem.setEnabled(b);
+        exitMenuItem.setEnabled(b);
     }
 
     public void displayOutput() {
